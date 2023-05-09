@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rc1
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+      - key: env
+        operator: In
+        values:
+          - prod
+          - test
+  template:
+    metadata:
+      labels:
+        env: test
+    spec:
+      containers:
+        - name: cont1
+          image: httpd

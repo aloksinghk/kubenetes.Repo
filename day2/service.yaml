@@ -1,0 +1,11 @@
+kind: Service
+metadata:
+  name: svc1
+spec:
+  selector:
+    class: day2
+  ports:
+    - protocol: TCP
+      port: 8880
+      targetPort: 80
+      name: outer
